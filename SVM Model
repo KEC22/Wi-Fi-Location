@@ -1,0 +1,8 @@
+SmallSubset<-trainingData.edit[1:1000,]
+x2 <- subset(SmallSubset, select=-SPACEID)
+y2 <- SmallSubset$SPACEID
+svm_model2 <- svm(SPACEID ~ ., data=SmallSubset)
+pred2 <- predict(svm_model2,x2)
+system.time(pred <- predict(svm_model2,x2))
+svm_tune2<-(svm, train.x=x2, train.y=y2,kernel="radial", ranges=list(cost=10^(-1:2), gamma=c(.5,1,2)))
+print(svm_tune2)
