@@ -1,0 +1,4 @@
+roc.norm <- roc(controls=rnorm(1000), cases=rnorm(1000)+1, plot=TRUE)
+plot(smooth(roc.norm, method="density"), col="green", lwd=1, add=TRUE)
+legend("bottomright", legend=c("empirical", "density"), 
++ col=c(par("fg"), "green"), lwd=c(2, 1, 1, 1))
